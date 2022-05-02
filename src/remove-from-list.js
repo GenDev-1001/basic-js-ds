@@ -25,7 +25,10 @@ const { NotImplementedError } = require('../extensions/index.js');
 
 
 function removeKFromList(l, k) {
-
+    if (l == null) return l;
+    if (l.value === k) return removeKFromList(l.next, k);
+    l.next = removeKFromList(l.next, k)
+    return l;
 }
 
 module.exports = {
